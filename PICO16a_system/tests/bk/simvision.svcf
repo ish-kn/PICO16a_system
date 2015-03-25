@@ -1,0 +1,208 @@
+# SimVision Command Script (Fri Aug 24 18:32:59 JST 2012)
+#
+# Version 10.20.s107
+#
+# You can restore this configuration with:
+#
+#     simvision -input simvision.svcf
+#
+
+
+#
+# Preferences
+#
+preferences set toolbar-OperatingMode-WaveWindow {
+  usual
+  position -pos 4
+  name OperatingMode
+}
+preferences set plugin-enable-svdatabrowser 0
+preferences set plugin-enable-groupscope 0
+preferences set plugin-enable-interleaveandcompare 0
+
+#
+# Databases
+#
+database require test_timer -search {
+	./test_timer/test_timer.trn
+	/home/professor/kitamiti/newsystem/comporg/PICO16a_system/tests/test_timer/test_timer.trn
+}
+
+#
+# Conditions
+#
+set expression {test_timer::test_timer.top.pico.dp.pc.dout[15:0]}
+if {[catch {condition new -name  {} -expr $expression}] != ""} {
+    condition set -using {} -expr $expression
+}
+set expression {test_timer::test_timer.top.pico.dp.pc.dout[15:0]}
+if {[catch {condition new -name  dout -expr $expression}] != ""} {
+    condition set -using dout -expr $expression
+}
+set expression {test_timer::test_timer.top.pico.dp.ir.dout[15:0]}
+if {[catch {condition new -name  {dout[15:0]} -expr $expression}] != ""} {
+    condition set -using {dout[15:0]} -expr $expression
+}
+set expression {test_timer::test_timer.top.pico.dp.pc.dout[15:0]}
+if {[catch {condition new -name  {dout[15:0]_[15:0]} -expr $expression}] != ""} {
+    condition set -using {dout[15:0]_[15:0]} -expr $expression
+}
+set expression {test_timer::test_timer.top.pico.dp.rf.addr1[2:0]}
+if {[catch {condition new -name  {ir.addr1[2:0]} -expr $expression}] != ""} {
+    condition set -using {ir.addr1[2:0]} -expr $expression
+}
+set expression {test_timer::test_timer.top.pico.dp.rf.din[15:0]}
+if {[catch {condition new -name  {ir.din[15:0]} -expr $expression}] != ""} {
+    condition set -using {ir.din[15:0]} -expr $expression
+}
+set expression {test_timer::test_timer.top.pico.dp.ir.dout[15:0]}
+if {[catch {condition new -name  {ir.dout[15:0]} -expr $expression}] != ""} {
+    condition set -using {ir.dout[15:0]} -expr $expression
+}
+set expression test_timer::test_timer.top.pico.dp.rf.we
+if {[catch {condition new -name  ir.we -expr $expression}] != ""} {
+    condition set -using ir.we -expr $expression
+}
+set expression {test_timer::test_timer.top.pico.dp.pc.dout[15:0]}
+if {[catch {condition new -name  {pc.dout[15:0]} -expr $expression}] != ""} {
+    condition set -using {pc.dout[15:0]} -expr $expression
+}
+
+#
+# Groups
+#
+catch {group new -name {Group 1} -overlay 0}
+catch {group new -name {Group 2} -overlay 0}
+catch {group new -name PC -overlay 0}
+catch {group new -name IR -overlay 0}
+catch {group new -name MEM -overlay 0}
+catch {group new -name {Group 6} -overlay 0}
+catch {group new -name RF -overlay 0}
+
+group using {Group 1}
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+
+group using {Group 2}
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+
+group using PC
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+     {test_timer::test_timer.top.pico.dp.pc.dout[15:0]} 
+
+group using IR
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+     {test_timer::test_timer.top.pico.dp.ir.dout[15:0]} 
+
+group using MEM
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+     {test_timer::test_timer.top.rmem.from_cpu[15:0]}  \
+     {test_timer::test_timer.top.rmem.adrs[15:0]}  \
+     test_timer::test_timer.top.rmem.we  \
+     {test_timer::test_timer.top.rmem.to_cpu[15:0]} 
+
+group using {Group 6}
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+
+group using RF
+group set -overlay 0
+group set -comment {}
+group clear 0 end
+
+group insert \
+     {test_timer::test_timer.top.pico.dp.rf.din[15:0]}  \
+     {test_timer::test_timer.top.pico.dp.rf.addr1[2:0]}  \
+     test_timer::test_timer.top.pico.dp.rf.we 
+
+#
+# Cursors
+#
+set time 0
+if {[catch {cursor new -name  TimeA -time $time}] != ""} {
+    cursor set -using TimeA -time $time
+}
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+
+#
+# Design Browser windows
+#
+if {[catch {window new WatchList -name "Design Browser 1" -geometry 700x500+1226+135}] != ""} {
+    window geometry "Design Browser 1" 700x500+1226+135
+}
+window target "Design Browser 1" on
+browser using {Design Browser 1}
+browser set -scope  test_timer::test_timer.top.pico.dp.rf 
+browser set \
+    -signalsort name
+browser yview see  test_timer::test_timer.top.pico.dp.rf 
+browser timecontrol set -lock 0
+
+#
+# Waveform windows
+#
+if {[catch {window new WaveWindow -name "Waveform 1" -geometry 1010x600+626+375}] != ""} {
+    window geometry "Waveform 1" 1010x600+626+375
+}
+window target "Waveform 1" on
+waveform using {Waveform 1}
+waveform sidebar visibility partial
+waveform set \
+    -primarycursor TimeA \
+    -signalnames name \
+    -signalwidth 175 \
+    -units ns \
+    -valuewidth 75
+cursor set -using TimeA -time 0
+waveform baseline set -time 0
+
+set id [waveform add -signals  {
+	test_timer::test_timer.top.cpu_clk
+	} ]
+
+set groupId0 [waveform add -groups PC]
+
+
+set groupId0 [waveform add -groups IR]
+
+
+set groupId0 [waveform add -groups RF]
+
+
+set groupId0 [waveform add -groups MEM]
+
+
+waveform xview limits 0 0.470314ns
+
+#
+# Waveform Window Links
+#
+

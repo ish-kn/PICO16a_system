@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="PICO16a_system">
+		<CBX_INST_ENTRY INSTANCE_NAME="|PICO16a_system|dev_cnt_LCD:dev_cnt_LCD|dev_interface_LCD:lcd|dpram8x32:scan_ram|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_lua2.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|PICO16a_system|dev_cnt_LCD:dev_cnt_LCD|dev_interface_LCD:lcd|testram:test_ram|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_vhf1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|PICO16a_system|dev_cnt_VGA:dev_cnt_VGA|dev_interface_VGA:vga|char_disp_ctrl:char_ctrl|frame_buffer:fb|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_h8b2.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|PICO16a_system|dev_cnt_VGA:dev_cnt_VGA|dev_interface_VGA:vga|char_disp_ctrl:char_ctrl|testram_vga:test_ram|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_8nf1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|PICO16a_system|memory:rmem|mem:imem|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_ofg1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|PICO16a_system|dev_cnt_VGA:dev_cnt_VGA|dev_interface_VGA:vga|char_disp_ctrl:char_ctrl|char_rom:c_rom|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_k1c1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

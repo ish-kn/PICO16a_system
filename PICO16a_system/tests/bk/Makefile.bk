@@ -1,0 +1,35 @@
+VERILOG=/home/course/comporg/bin/ncverilog
+VERILOG_SOURCE=test_find_max.v \
+../rtl/PICO16a_system.v \
+../rtl/util_register_1bit.v \
+../rtl/util_register.v \
+../rtl/memory.v \
+../rtl/memory_lpm.v \
+../rtl/pico16a.v \
+../rtl/util_genClk.v \
+/usr/local/quartus-12.0/quartus/eda/sim_lib/altera_mf.v
+LANG = C
+LC_ALL = C
+
+VL_OPT=
+VIEWER=/home/course/comporg/bin/simvision
+PERL=perl /home/course/comporg/bin/pasm.pl
+
+sim:    perl-sim simulation viewer
+
+perl-sim:
+	$(PERL) -v sample_find_max.s
+
+perl-fpga:
+	$(PERL) -m sample_find_max.s
+
+simulation:
+	rm -rf INCA_libs test_find_max result.txt
+	$(VERILOG) $(VERILOG_SOURCE) $(VL_OPT)
+
+viewer:
+	$(VIEWER) -input simvision.svcf
+
+
+clean:
+	rm -rf *~ INCA_libs test_find_max result.txt sample_find_max.mem  sample_find_max.mif

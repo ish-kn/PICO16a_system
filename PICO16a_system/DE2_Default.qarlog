@@ -1,0 +1,29 @@
+Quartus II Archive log --	/home/student/s1190205/fpga/PICO16a_system/DE2_Default.qarlog
+
+Archive:	/home/student/s1190205/fpga/PICO16a_system/DE2_Default.qar
+Date:		Tue Jan 14 16:52:43 2014
+Quartus II 64-Bit		12.0 Build 178 05/31/2012 SJ Full Version
+
+	=========== Files Selected: ===========
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.cmp.atm
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.cmp.cmp.kpt
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.cmp.dfp
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.cmp.dpi
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.cmp.hdbx
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.cmp.logdb
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.cmp.map.kpt
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.cmp.qxp_info
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.cmp.rcf
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.cmp.scidsc
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.map.atm
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.map.dpi
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.map.hdbx
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.map.logdb
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.map.map.kpt
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.map.qxp_info
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/PICO16a_system.map.scidsc
+/home/student/s1190205/fpga/PICO16a_system/db/tmp_qic_export_dir/qic_export_file_list
+	======= Total: 18 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

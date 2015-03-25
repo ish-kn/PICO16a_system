@@ -1,0 +1,39 @@
+VERILOG=/home/course/comporg/bin/ncverilog
+VERILOG_SOURCE=test_7_2.v \
+../rtl/PICO16a_system.v \
+../rtl/util_register_1bit.v \
+../rtl/util_register.v \
+../rtl/memory.v \
+../rtl/memory_lpm.v \
+../rtl/pico16a.v \
+../rtl/util_genClk.v \
+../rtl/sevenseg_dec.v \
+../rtl/adrs_dec_7seg.v \
+../rtl/dev_cnt_7seg.v \
+../rtl/dev_interface_7seg.v \
+/usr/local/quartus-12.0/quartus/eda/sim_lib/altera_mf.v
+LANG = C
+LC_ALL = C
+
+VL_OPT=
+VIEWER=/home/course/comporg/bin/simvision
+PERL=perl /home/course/comporg/bin/pasm.pl
+
+sim:    perl-sim simulation viewer
+
+perl-sim:
+	$(PERL) -v 7_2.s
+
+perl-fpga:
+	$(PERL) -m 7_2.s
+
+simulation:
+		rm -rf INCA_libs test_7_2 result_7_2.txt
+	$(VERILOG) $(VERILOG_SOURCE) $(VL_OPT) 
+
+viewer:
+	$(VIEWER) -input simvision.svcf
+
+
+clean:
+	rm -rf *~ INCA_libs test_7_2 result_7_2.txt 7_2.mem 7_2.mif 

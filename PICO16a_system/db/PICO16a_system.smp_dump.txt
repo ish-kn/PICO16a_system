@@ -1,0 +1,35 @@
+
+State Machine - |PICO16a_system|dev_cnt_timer:dev_cnt_timer|timer:timer|status
+Name status.11 status.10 status.01 status.00 
+status.00 0 0 0 0 
+status.01 0 0 1 1 
+status.10 0 1 0 1 
+status.11 1 0 0 1 
+
+State Machine - |PICO16a_system|dev_cnt_key3int:dev_cnt_key3int|key_int:key3int_if|state_key3
+Name state_key3.10 
+state_key3.01 0 
+state_key3.10 1 
+
+State Machine - |PICO16a_system|dev_cnt_LCD:dev_cnt_LCD|dev_interface_LCD:lcd|mLCD_ST
+Name mLCD_ST.011 mLCD_ST.010 mLCD_ST.001 mLCD_ST.000 mLCD_ST.100 
+mLCD_ST.000 0 0 0 0 0 
+mLCD_ST.001 0 0 1 1 0 
+mLCD_ST.010 0 1 0 1 0 
+mLCD_ST.011 1 0 0 1 0 
+mLCD_ST.100 0 0 0 1 1 
+
+State Machine - |PICO16a_system|dev_cnt_LCD:dev_cnt_LCD|dev_interface_LCD:lcd|LCD_raw_controller:u0|ST
+Name ST.11 ST.10 ST.01 ST.00 
+ST.00 0 0 0 0 
+ST.01 0 0 1 1 
+ST.10 0 1 0 1 
+ST.11 1 0 0 1 
+
+State Machine - |PICO16a_system|pico16a:pico|controller:cunit|state
+Name state.10000 state.01000 state.00100 state.00010 state.00001 
+state.00001 0 0 0 0 0 
+state.00010 0 0 0 1 1 
+state.00100 0 0 1 0 1 
+state.01000 0 1 0 0 1 
+state.10000 1 0 0 0 1 

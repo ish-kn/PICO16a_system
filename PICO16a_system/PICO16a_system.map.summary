@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Tue Jan 14 16:51:39 2014
+Quartus II 64-Bit Version : 12.0 Build 178 05/31/2012 SJ Full Version
+Revision Name : PICO16a_system
+Top-level Entity Name : PICO16a_system
+Family : Cyclone IV E
+Total logic elements : 1,575
+    Total combinational functions : 1,341
+    Dedicated logic registers : 693
+Total registers : 693
+Total pins : 156
+Total virtual pins : 0
+Total memory bits : 156,160
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
